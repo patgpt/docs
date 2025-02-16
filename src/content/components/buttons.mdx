@@ -1,0 +1,211 @@
+export const meta = {
+  title: 'Buttons',
+  description: 'Neumorphic button components and variants'
+}
+
+# Buttons
+
+Neumorphic buttons with various styles and states.
+
+## Basic Button
+
+The basic button with a flat neumorphic effect.
+
+```html
+<button class="nm-button">Click me</button>
+```
+
+## Button Variants
+
+### Primary Button
+
+```html
+<button class="nm-button-primary">Primary Action</button>
+```
+
+### Secondary Button
+
+```html
+<button class="nm-button-secondary">Secondary Action</button>
+```
+
+### Ghost Button
+
+```html
+<button class="nm-button-ghost">Ghost Button</button>
+```
+
+### Icon Button
+
+```html
+<button class="nm-button-icon">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M12 5v14M5 12h14" />
+  </svg>
+</button>
+```
+
+## Button Sizes
+
+### Small Button
+
+```html
+<button class="nm-button nm-button-sm">Small</button>
+```
+
+### Default Button
+
+```html
+<button class="nm-button">Default</button>
+```
+
+### Large Button
+
+```html
+<button class="nm-button nm-button-lg">Large</button>
+```
+
+## Button Group
+
+```html
+<div class="nm-button-group">
+  <button class="nm-button">Left</button>
+  <button class="nm-button">Middle</button>
+  <button class="nm-button">Right</button>
+</div>
+```
+
+## States
+
+### Hover
+
+Buttons have a convex effect on hover:
+
+```html
+<button class="nm-button hover:nm-convex">Hover me</button>
+```
+
+### Active
+
+Buttons have a pressed effect when active:
+
+```html
+<button class="nm-button active:nm-pressed">Click me</button>
+```
+
+### Disabled
+
+```html
+<button class="nm-button" disabled>Disabled</button>
+```
+
+### Focus
+
+Buttons have a convex effect when focused:
+
+```html
+<button class="nm-button focus:nm-convex">Focus me</button>
+```
+
+## Dark Mode
+
+Buttons automatically adapt to dark mode:
+
+```html
+<div class="dark">
+  <button class="nm-button">Dark Mode Button</button>
+</div>
+```
+
+## Customization
+
+You can customize button colors and other properties through your Tailwind config:
+
+```js
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          500: "#3B82F6", // Customize primary button color
+        },
+        secondary: {
+          500: "#6B7280", // Customize secondary button color
+        },
+      },
+    },
+  },
+};
+```
+
+## Accessibility
+
+- Buttons are keyboard accessible
+- Use appropriate ARIA attributes when needed
+- Maintain sufficient color contrast
+- Include descriptive text or aria-label for icon buttons
+
+## Examples
+
+### Loading Button
+
+```html
+<button class="nm-button" disabled>
+  <svg
+    class="animate-spin -ml-1 mr-3 h-5 w-5"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+  >
+    <circle
+      class="opacity-25"
+      cx="12"
+      cy="12"
+      r="10"
+      stroke="currentColor"
+      stroke-width="4"
+    ></circle>
+    <path
+      class="opacity-75"
+      fill="currentColor"
+      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+    ></path>
+  </svg>
+  Processing...
+</button>
+```
+
+### Icon with Text
+
+```html
+<button class="nm-button">
+  <svg
+    class="w-5 h-5 mr-2"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+    />
+  </svg>
+  Add Item
+</button>
+```
+
+### Full Width Button
+
+```html
+<button class="nm-button w-full">Full Width Button</button>
+```

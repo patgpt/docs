@@ -13,6 +13,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "resolvePackageJsonImports": true,
     "plugins": [
       {
         "name": "next"
@@ -23,6 +24,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "global.d.ts", "src/app/i18n/**/*.{ts|json}"],
   "exclude": ["node_modules"]
 }
