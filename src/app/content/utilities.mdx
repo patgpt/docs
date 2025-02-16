@@ -171,14 +171,14 @@ const shadow = generateShadow(
 // Generate color variables
 const generateColorVariables = (theme) => ({
   "--nm-bg": theme("colors.neumorphic.light.base"),
-  "--nm-shadow": theme("colors.neumorphic.light.shadow"),
+  "--nm-shadow": theme("colors.neumorphic.light.shadow-sm"),
   "--nm-highlight": theme("colors.neumorphic.light.highlight"),
 });
 
 // Generate dark mode color variables
 const darkModeColorVariables = (theme) => ({
   "--nm-bg": theme("colors.neumorphic.dark.base"),
-  "--nm-shadow": theme("colors.neumorphic.dark.shadow"),
+  "--nm-shadow": theme("colors.neumorphic.dark.shadow-sm"),
   "--nm-highlight": theme("colors.neumorphic.dark.highlight"),
 });
 ```
