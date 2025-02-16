@@ -1,0 +1,356 @@
+# Form Components
+
+A collection of neumorphic form components including inputs, checkboxes, radio buttons, switches, and select menus.
+
+## Text Input
+
+Basic text input with neumorphic styling.
+
+```html
+<input type="text" class="nm-input" placeholder="Enter text..." />
+```
+
+### Input Variants
+
+```html
+<!-- Default Input -->
+<input type="text" class="nm-input" placeholder="Default input" />
+
+<!-- Small Input -->
+<input type="text" class="nm-input nm-input-sm" placeholder="Small input" />
+
+<!-- Large Input -->
+<input type="text" class="nm-input nm-input-lg" placeholder="Large input" />
+
+<!-- Full Width Input -->
+<input type="text" class="nm-input w-full" placeholder="Full width input" />
+
+<!-- Disabled Input -->
+<input type="text" class="nm-input" placeholder="Disabled input" disabled />
+
+<!-- With Icon -->
+<div class="relative">
+  <input type="text" class="nm-input pl-10" placeholder="Search..." />
+  <svg
+    class="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+    />
+  </svg>
+</div>
+```
+
+## Checkbox
+
+Neumorphic checkbox input.
+
+```html
+<label class="nm-checkbox-container">
+  <input type="checkbox" class="nm-checkbox" />
+  <span class="nm-checkbox-label">Check me</span>
+</label>
+```
+
+### Checkbox Variants
+
+```html
+<!-- Default Checkbox -->
+<label class="nm-checkbox-container">
+  <input type="checkbox" class="nm-checkbox" />
+  <span class="nm-checkbox-label">Default checkbox</span>
+</label>
+
+<!-- Checked Checkbox -->
+<label class="nm-checkbox-container">
+  <input type="checkbox" class="nm-checkbox" checked />
+  <span class="nm-checkbox-label">Checked checkbox</span>
+</label>
+
+<!-- Disabled Checkbox -->
+<label class="nm-checkbox-container">
+  <input type="checkbox" class="nm-checkbox" disabled />
+  <span class="nm-checkbox-label">Disabled checkbox</span>
+</label>
+```
+
+## Radio Button
+
+Neumorphic radio button input.
+
+```html
+<label class="nm-radio-container">
+  <input type="radio" class="nm-radio" name="radio-group" />
+  <span class="nm-radio-label">Select me</span>
+</label>
+```
+
+### Radio Button Group
+
+```html
+<div class="space-y-2">
+  <label class="nm-radio-container">
+    <input type="radio" class="nm-radio" name="radio-group" value="option1" />
+    <span class="nm-radio-label">Option 1</span>
+  </label>
+
+  <label class="nm-radio-container">
+    <input type="radio" class="nm-radio" name="radio-group" value="option2" />
+    <span class="nm-radio-label">Option 2</span>
+  </label>
+
+  <label class="nm-radio-container">
+    <input type="radio" class="nm-radio" name="radio-group" value="option3" />
+    <span class="nm-radio-label">Option 3</span>
+  </label>
+</div>
+```
+
+## Switch
+
+Toggle switch input with neumorphic styling.
+
+```html
+<label class="nm-switch-container">
+  <input type="checkbox" class="nm-switch" />
+  <span class="nm-switch-label">Toggle me</span>
+</label>
+```
+
+### Switch Variants
+
+```html
+<!-- Default Switch -->
+<label class="nm-switch-container">
+  <input type="checkbox" class="nm-switch" />
+  <span class="nm-switch-label">Default switch</span>
+</label>
+
+<!-- Checked Switch -->
+<label class="nm-switch-container">
+  <input type="checkbox" class="nm-switch" checked />
+  <span class="nm-switch-label">Checked switch</span>
+</label>
+
+<!-- Disabled Switch -->
+<label class="nm-switch-container">
+  <input type="checkbox" class="nm-switch" disabled />
+  <span class="nm-switch-label">Disabled switch</span>
+</label>
+```
+
+## Select Menu
+
+Neumorphic select dropdown.
+
+```html
+<select class="nm-select">
+  <option value="" disabled selected>Select an option</option>
+  <option value="1">Option 1</option>
+  <option value="2">Option 2</option>
+  <option value="3">Option 3</option>
+</select>
+```
+
+### Select Variants
+
+```html
+<!-- Default Select -->
+<select class="nm-select">
+  <option value="1">Option 1</option>
+  <option value="2">Option 2</option>
+  <option value="3">Option 3</option>
+</select>
+
+<!-- Small Select -->
+<select class="nm-select nm-select-sm">
+  <option value="1">Option 1</option>
+  <option value="2">Option 2</option>
+  <option value="3">Option 3</option>
+</select>
+
+<!-- Large Select -->
+<select class="nm-select nm-select-lg">
+  <option value="1">Option 1</option>
+  <option value="2">Option 2</option>
+  <option value="3">Option 3</option>
+</select>
+```
+
+## Interactive Examples
+
+### Form with Validation
+
+```jsx
+function ValidatedForm() {
+  const [formData, setFormData] = React.useState({
+    name: "",
+    email: "",
+    subscription: false,
+    plan: "",
+  });
+  const [errors, setErrors] = React.useState({});
+
+  const validate = () => {
+    const newErrors = {};
+    if (!formData.name) newErrors.name = "Name is required";
+    if (!formData.email) newErrors.email = "Email is required";
+    if (!formData.plan) newErrors.plan = "Please select a plan";
+    return newErrors;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newErrors = validate();
+    if (Object.keys(newErrors).length === 0) {
+      // Submit form
+      console.log("Form submitted:", formData);
+    } else {
+      setErrors(newErrors);
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit} class="space-y-4">
+      <div>
+        <label class="block mb-2">Name</label>
+        <input
+          type="text"
+          class={`nm-input w-full ${errors.name ? "border-red-500" : ""}`}
+          value={formData.name}
+          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+        />
+        {errors.name && <p class="text-red-500 text-sm mt-1">{errors.name}</p>}
+      </div>
+
+      <div>
+        <label class="block mb-2">Email</label>
+        <input
+          type="email"
+          class={`nm-input w-full ${errors.email ? "border-red-500" : ""}`}
+          value={formData.email}
+          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+        />
+        {errors.email && (
+          <p class="text-red-500 text-sm mt-1">{errors.email}</p>
+        )}
+      </div>
+
+      <div>
+        <label class="nm-switch-container">
+          <input
+            type="checkbox"
+            class="nm-switch"
+            checked={formData.subscription}
+            onChange={(e) =>
+              setFormData({ ...formData, subscription: e.target.checked })
+            }
+          />
+          <span class="nm-switch-label">Subscribe to newsletter</span>
+        </label>
+      </div>
+
+      <div>
+        <label class="block mb-2">Plan</label>
+        <select
+          class={`nm-select w-full ${errors.plan ? "border-red-500" : ""}`}
+          value={formData.plan}
+          onChange={(e) => setFormData({ ...formData, plan: e.target.value })}
+        >
+          <option value="">Select a plan</option>
+          <option value="basic">Basic</option>
+          <option value="pro">Pro</option>
+          <option value="enterprise">Enterprise</option>
+        </select>
+        {errors.plan && <p class="text-red-500 text-sm mt-1">{errors.plan}</p>}
+      </div>
+
+      <button type="submit" class="nm-button-primary w-full">
+        Submit
+      </button>
+    </form>
+  );
+}
+```
+
+## Customization
+
+### Input Sizes
+
+```js
+module.exports = {
+  theme: {
+    extend: {
+      spacing: {
+        input: {
+          sm: "2rem",
+          DEFAULT: "2.5rem",
+          lg: "3rem",
+        },
+      },
+    },
+  },
+};
+```
+
+### Custom Colors
+
+```js
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        input: {
+          focus: "#3B82F6",
+          error: "#EF4444",
+          success: "#10B981",
+        },
+      },
+    },
+  },
+};
+```
+
+## Accessibility
+
+- Use proper label associations
+- Include ARIA attributes where needed
+- Maintain sufficient color contrast
+- Support keyboard navigation
+- Provide error messages
+- Use fieldset and legend for groups
+
+## Best Practices
+
+1. **Form Layout**
+
+   - Group related fields
+   - Use consistent spacing
+   - Align labels and inputs
+   - Show validation state clearly
+
+2. **Input Behavior**
+
+   - Provide clear focus states
+   - Show validation in real-time
+   - Use appropriate input types
+   - Include helpful placeholder text
+
+3. **Error Handling**
+
+   - Display clear error messages
+   - Highlight problematic fields
+   - Provide guidance for correction
+   - Maintain form state on error
+
+4. **Accessibility**
+   - Use semantic HTML
+   - Include proper ARIA labels
+   - Support keyboard navigation
+   - Provide error feedback

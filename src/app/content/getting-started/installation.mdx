@@ -1,0 +1,106 @@
+# Installation
+
+## Requirements
+
+- Tailwind CSS v4.0 or higher
+- Node.js 16.0 or higher
+- PostCSS 8.0 or higher
+
+## Installation Steps
+
+1. Install the plugin using your preferred package manager:
+
+```bash
+npm install @wavefunction/tailwindcss-neumorphic
+# or
+yarn add @wavefunction/tailwindcss-neumorphic
+# or
+pnpm add @wavefunction/tailwindcss-neumorphic
+```
+
+2. Add the plugin to your `tailwind.config.js`:
+
+```js
+module.exports = {
+  plugins: [require("@wavefunction/tailwindcss-neumorphic")],
+};
+```
+
+3. (Optional) Configure the theme:
+
+```js
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        neumorphic: {
+          light: {
+            base: "#f0f0f0",
+            shadow: "rgba(0, 0, 0, 0.1)",
+            highlight: "rgba(255, 255, 255, 0.8)",
+          },
+          dark: {
+            base: "#2d2d2d",
+            shadow: "rgba(0, 0, 0, 0.3)",
+            highlight: "rgba(255, 255, 255, 0.05)",
+          },
+        },
+      },
+    },
+  },
+  plugins: [require("@wavefunction/tailwindcss-neumorphic")],
+};
+```
+
+## Dark Mode Support
+
+The plugin automatically supports Tailwind's dark mode. Make sure you have dark mode configured in your `tailwind.config.js`:
+
+```js
+module.exports = {
+  darkMode: "class", // or 'media'
+  // ...
+};
+```
+
+Then you can use dark mode variants:
+
+```html
+<div class="dark">
+  <button class="nm-button">Dark Mode Button</button>
+</div>
+```
+
+## TypeScript Support
+
+The plugin includes TypeScript definitions out of the box. No additional configuration is needed.
+
+## Basic Usage
+
+Here's a quick example of using the plugin's components:
+
+```html
+<!-- Button -->
+<button class="nm-button">Click me</button>
+
+<!-- Card -->
+<div class="nm-card">
+  <h2>Card Title</h2>
+  <p>Card content...</p>
+</div>
+
+<!-- Input -->
+<input type="text" class="nm-input" placeholder="Enter text..." />
+
+<!-- Checkbox -->
+<input type="checkbox" class="nm-checkbox" />
+
+<!-- Switch -->
+<input type="checkbox" class="nm-switch" />
+```
+
+## Next Steps
+
+- Check out the [Components](/components) documentation
+- Learn about [Customization](/customization)
+- View [Examples](/examples)

@@ -1,0 +1,18 @@
+{
+  "buttons": {
+    "title": "Buttons",
+    "type": "page"
+  },
+  "forms": {
+    "title": "Forms",
+    "type": "page"
+  },
+  "navigation": {
+    "title": "Navigation",
+    "type": "page"
+  },
+  "overlays": {
+    "title": "Overlays",
+    "type": "page"
+  }
+} 

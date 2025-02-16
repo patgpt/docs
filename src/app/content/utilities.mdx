@@ -1,0 +1,307 @@
+# Utility Functions
+
+A collection of utility functions and classes for working with neumorphic design.
+
+## Shadow Utilities
+
+### Base Shadow Classes
+
+```html
+<!-- Flat Shadow -->
+<div class="nm-flat">Flat neumorphic element</div>
+
+<!-- Concave Shadow -->
+<div class="nm-concave">Concave neumorphic element</div>
+
+<!-- Convex Shadow -->
+<div class="nm-convex">Convex neumorphic element</div>
+
+<!-- Pressed Shadow -->
+<div class="nm-pressed">Pressed neumorphic element</div>
+```
+
+### Shadow Sizes
+
+```html
+<!-- Small Shadow -->
+<div class="nm-flat-sm">Small shadow</div>
+
+<!-- Default Shadow -->
+<div class="nm-flat">Default shadow</div>
+
+<!-- Medium Shadow -->
+<div class="nm-flat-md">Medium shadow</div>
+
+<!-- Large Shadow -->
+<div class="nm-flat-lg">Large shadow</div>
+
+<!-- Extra Large Shadow -->
+<div class="nm-flat-xl">Extra large shadow</div>
+```
+
+## Color Utilities
+
+### Color Variables
+
+```css
+:root {
+  --nm-bg: #f0f0f0;
+  --nm-shadow: rgba(0, 0, 0, 0.1);
+  --nm-highlight: rgba(255, 255, 255, 0.8);
+}
+
+.dark {
+  --nm-bg: #2d2d2d;
+  --nm-shadow: rgba(0, 0, 0, 0.3);
+  --nm-highlight: rgba(255, 255, 255, 0.05);
+}
+```
+
+### Custom Color Example
+
+```html
+<div class="nm-flat" style="--nm-bg: #e0f2fe;">Custom background color</div>
+```
+
+## Transition Utilities
+
+### Duration Classes
+
+```html
+<!-- Fast Transition -->
+<div class="nm-transition-fast">Fast transition</div>
+
+<!-- Default Transition -->
+<div class="nm-transition">Default transition</div>
+
+<!-- Slow Transition -->
+<div class="nm-transition-slow">Slow transition</div>
+```
+
+### Timing Functions
+
+```html
+<!-- Linear -->
+<div class="nm-timing-linear">Linear timing</div>
+
+<!-- Ease -->
+<div class="nm-timing-ease">Ease timing</div>
+
+<!-- Ease In -->
+<div class="nm-timing-ease-in">Ease-in timing</div>
+
+<!-- Ease Out -->
+<div class="nm-timing-ease-out">Ease-out timing</div>
+
+<!-- Ease In Out -->
+<div class="nm-timing-ease-in-out">Ease-in-out timing</div>
+```
+
+## Animation Utilities
+
+### Skeleton Loading
+
+```html
+<div class="nm-skeleton h-4 w-32">
+  <!-- Skeleton content -->
+</div>
+```
+
+### Modal Animations
+
+```html
+<!-- Modal Fade -->
+<div class="nm-modal-fade">Modal content</div>
+
+<!-- Modal Scale -->
+<div class="nm-modal-scale">Modal content</div>
+```
+
+### Drawer Animations
+
+```html
+<!-- Drawer Slide Left -->
+<div class="nm-drawer-slide-left">Drawer content</div>
+
+<!-- Drawer Slide Right -->
+<div class="nm-drawer-slide-right">Drawer content</div>
+```
+
+## Layout Utilities
+
+### Z-Index Stack
+
+```html
+<!-- Overlay -->
+<div class="z-overlay">Overlay content</div>
+
+<!-- Modal -->
+<div class="z-modal">Modal content</div>
+
+<!-- Drawer -->
+<div class="z-drawer">Drawer content</div>
+
+<!-- Toast -->
+<div class="z-toast">Toast content</div>
+```
+
+## Helper Functions
+
+### Shadow Generator
+
+```js
+// Generate box shadow
+const generateShadow = (shadowValues, darkShadow, lightShadow) => {
+  return shadowValues
+    .map((value, index) => `${value} ${index === 0 ? darkShadow : lightShadow}`)
+    .join(",\n");
+};
+
+// Usage
+const shadow = generateShadow(
+  ["6px 6px 12px", "-6px -6px 12px"],
+  "var(--nm-shadow)",
+  "var(--nm-highlight)"
+);
+```
+
+### Color Variables Generator
+
+```js
+// Generate color variables
+const generateColorVariables = (theme) => ({
+  "--nm-bg": theme("colors.neumorphic.light.base"),
+  "--nm-shadow": theme("colors.neumorphic.light.shadow"),
+  "--nm-highlight": theme("colors.neumorphic.light.highlight"),
+});
+
+// Generate dark mode color variables
+const darkModeColorVariables = (theme) => ({
+  "--nm-bg": theme("colors.neumorphic.dark.base"),
+  "--nm-shadow": theme("colors.neumorphic.dark.shadow"),
+  "--nm-highlight": theme("colors.neumorphic.dark.highlight"),
+});
+```
+
+## Customization
+
+### Shadow Configuration
+
+```js
+module.exports = {
+  theme: {
+    extend: {
+      shadows: {
+        sm: ["2px 2px 4px", "-2px -2px 4px"],
+        DEFAULT: ["6px 6px 12px", "-6px -6px 12px"],
+        md: ["8px 8px 16px", "-8px -8px 16px"],
+        lg: ["12px 12px 24px", "-12px -12px 24px"],
+        xl: ["16px 16px 32px", "-16px -16px 32px"],
+      },
+    },
+  },
+};
+```
+
+### Transition Configuration
+
+```js
+module.exports = {
+  theme: {
+    extend: {
+      transitionDuration: {
+        DEFAULT: "0.2s",
+        fast: "0.1s",
+        slow: "0.3s",
+      },
+      transitionTimingFunction: {
+        DEFAULT: "ease-in-out",
+        linear: "linear",
+        ease: "ease",
+        "ease-in": "ease-in",
+        "ease-out": "ease-out",
+        "ease-in-out": "ease-in-out",
+      },
+    },
+  },
+};
+```
+
+## Best Practices
+
+1. **Shadow Usage**
+
+   - Use appropriate shadow sizes based on element size
+   - Consider depth hierarchy in your design
+   - Maintain consistent shadow direction
+   - Use transitions for interactive elements
+
+2. **Color Management**
+
+   - Keep color palette consistent
+   - Test colors in both light and dark modes
+   - Consider accessibility contrast ratios
+   - Use CSS variables for dynamic theming
+
+3. **Animation Performance**
+
+   - Use hardware-accelerated properties
+   - Avoid animating expensive properties
+   - Keep animations subtle and purposeful
+   - Test performance on mobile devices
+
+4. **Responsive Design**
+   - Adjust shadow sizes for different viewports
+   - Consider touch targets on mobile
+   - Test transitions on different devices
+   - Optimize for different screen sizes
+
+## Examples
+
+### Interactive Card
+
+```jsx
+function InteractiveCard() {
+  const [isPressed, setIsPressed] = React.useState(false);
+
+  return (
+    <div
+      className={`p-6 rounded-lg transition-all duration-200 ${
+        isPressed ? "nm-pressed" : "nm-flat hover:nm-convex"
+      }`}
+      onMouseDown={() => setIsPressed(true)}
+      onMouseUp={() => setIsPressed(false)}
+      onMouseLeave={() => setIsPressed(false)}
+    >
+      <h3 className="text-lg font-semibold mb-2">Interactive Card</h3>
+      <p>Click me to see the pressed state!</p>
+    </div>
+  );
+}
+```
+
+### Animated Button
+
+```jsx
+function AnimatedButton({ children }) {
+  return (
+    <button className="nm-flat hover:nm-convex active:nm-pressed transition-all duration-200">
+      {children}
+    </button>
+  );
+}
+```
+
+### Loading Skeleton
+
+```jsx
+function SkeletonLoader() {
+  return (
+    <div className="space-y-4">
+      <div className="nm-skeleton h-8 w-48" />
+      <div className="nm-skeleton h-4 w-full" />
+      <div className="nm-skeleton h-4 w-2/3" />
+    </div>
+  );
+}
+```

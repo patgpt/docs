@@ -1,0 +1,243 @@
+# Theme Customization
+
+The Neumorphic plugin is highly customizable. You can modify colors, shadows, border radius, transitions, and more.
+
+## Colors
+
+Customize the base colors for light and dark modes:
+
+```js
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        neumorphic: {
+          light: {
+            base: "#f0f0f0", // Base background color
+            shadow: "rgba(0, 0, 0, 0.1)", // Shadow color
+            highlight: "rgba(255, 255, 255, 0.8)", // Highlight color
+          },
+          dark: {
+            base: "#2d2d2d",
+            shadow: "rgba(0, 0, 0, 0.3)",
+            highlight: "rgba(255, 255, 255, 0.05)",
+          },
+        },
+      },
+    },
+  },
+};
+```
+
+## Border Radius
+
+Customize the border radius for different sizes:
+
+```js
+module.exports = {
+  theme: {
+    extend: {
+      borderRadius: {
+        DEFAULT: "0.5rem",
+        sm: "0.25rem",
+        md: "0.5rem",
+        lg: "1rem",
+        xl: "1.5rem",
+        full: "9999px",
+      },
+    },
+  },
+};
+```
+
+## Shadows
+
+Customize the shadow sizes and offsets:
+
+```js
+module.exports = {
+  theme: {
+    extend: {
+      shadows: {
+        sm: ["2px 2px 4px", "-2px -2px 4px"],
+        DEFAULT: ["6px 6px 12px", "-6px -6px 12px"],
+        md: ["8px 8px 16px", "-8px -8px 16px"],
+        lg: ["12px 12px 24px", "-12px -12px 24px"],
+        xl: ["16px 16px 32px", "-16px -16px 32px"],
+      },
+    },
+  },
+};
+```
+
+## Transitions
+
+Customize transition durations and timing functions:
+
+```js
+module.exports = {
+  theme: {
+    extend: {
+      transitionDuration: {
+        DEFAULT: "0.2s",
+        fast: "0.1s",
+        slow: "0.3s",
+      },
+      transitionTimingFunction: {
+        DEFAULT: "ease-in-out",
+        linear: "linear",
+        ease: "ease",
+        "ease-in": "ease-in",
+        "ease-out": "ease-out",
+        "ease-in-out": "ease-in-out",
+      },
+    },
+  },
+};
+```
+
+## Animations
+
+Customize animation durations and timing:
+
+```js
+module.exports = {
+  theme: {
+    extend: {
+      animations: {
+        skeleton: {
+          duration: "1.5s",
+          timing: "linear",
+        },
+        modal: {
+          duration: "0.3s",
+          timing: "ease-in-out",
+        },
+        drawer: {
+          duration: "0.3s",
+          timing: "ease-in-out",
+        },
+      },
+    },
+  },
+};
+```
+
+## Z-Index
+
+Customize z-index values for overlays and modals:
+
+```js
+module.exports = {
+  theme: {
+    extend: {
+      zIndex: {
+        overlay: 40,
+        modal: 50,
+        drawer: 50,
+        toast: 60,
+      },
+    },
+  },
+};
+```
+
+## Complete Configuration
+
+Here's an example of a complete configuration with all customizable options:
+
+```js
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        neumorphic: {
+          light: {
+            base: "#f0f0f0",
+            shadow: "rgba(0, 0, 0, 0.1)",
+            highlight: "rgba(255, 255, 255, 0.8)",
+          },
+          dark: {
+            base: "#2d2d2d",
+            shadow: "rgba(0, 0, 0, 0.3)",
+            highlight: "rgba(255, 255, 255, 0.05)",
+          },
+        },
+      },
+      borderRadius: {
+        DEFAULT: "0.5rem",
+        sm: "0.25rem",
+        md: "0.5rem",
+        lg: "1rem",
+        xl: "1.5rem",
+        full: "9999px",
+      },
+      shadows: {
+        sm: ["2px 2px 4px", "-2px -2px 4px"],
+        DEFAULT: ["6px 6px 12px", "-6px -6px 12px"],
+        md: ["8px 8px 16px", "-8px -8px 16px"],
+        lg: ["12px 12px 24px", "-12px -12px 24px"],
+        xl: ["16px 16px 32px", "-16px -16px 32px"],
+      },
+      transitionDuration: {
+        DEFAULT: "0.2s",
+        fast: "0.1s",
+        slow: "0.3s",
+      },
+      transitionTimingFunction: {
+        DEFAULT: "ease-in-out",
+        linear: "linear",
+        ease: "ease",
+        "ease-in": "ease-in",
+        "ease-out": "ease-out",
+        "ease-in-out": "ease-in-out",
+      },
+      animations: {
+        skeleton: {
+          duration: "1.5s",
+          timing: "linear",
+        },
+        modal: {
+          duration: "0.3s",
+          timing: "ease-in-out",
+        },
+        drawer: {
+          duration: "0.3s",
+          timing: "ease-in-out",
+        },
+      },
+      zIndex: {
+        overlay: 40,
+        modal: 50,
+        drawer: 50,
+        toast: 60,
+      },
+    },
+  },
+};
+```
+
+## Best Practices
+
+1. **Color Selection**
+
+   - Use light, neutral colors for the best neumorphic effect
+   - Maintain sufficient contrast for accessibility
+   - Test your color scheme in both light and dark modes
+
+2. **Shadow Configuration**
+
+   - Keep shadow offsets proportional to element size
+   - Use subtle shadows for small elements
+   - Increase shadow size for larger elements
+
+3. **Transitions**
+
+   - Use smooth transitions for better user experience
+   - Keep transitions short (0.2-0.3s) for interactive elements
+   - Use appropriate timing functions for different interactions
+
+4. **Accessibility**
+   - Ensure sufficient color contrast
+   - Maintain clear visual hierarchy
+   - Test with screen readers and keyboard navigation
